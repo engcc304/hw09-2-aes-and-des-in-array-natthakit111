@@ -23,3 +23,62 @@
         99-0 : 13 9 6 5 4 1 1
 
 */
+
+#include <stdio.h>
+
+int main() {
+    int a[100] ;
+    int n = 0 ;    
+    int p ;
+
+    while ( 1 ) {
+        printf( "Input : ") ;
+        scanf( "%d", &p ) ;
+
+        if ( p  == -1 ) {
+            break ;
+        }//end if
+
+        if ( n < 100 ) {
+            a[n] = p ;
+            n++ ;
+        } else {
+            printf( "อาเรย์เต็มแล้ว\n" ) ;
+            break ;
+        }//end if
+    }//end while
+
+    for ( int i = 0 ; i < n - 1 ; i++ ) {
+        for ( int j = i + 1 ; j < n ; j++ ) {
+            if ( a[i] > a[j] ) {
+                int temp = a[i] ;
+                a[i] = a[j] ;
+                a[j] = temp ;
+            }//end if
+        }//end for
+    }//end for
+
+    printf( "0-99 : " ) ;
+    for ( int i = 0 ; i < n ; i++ ) {
+        printf( "%d ", a[i] ) ;
+    }//end for
+    printf( "\n" ) ;
+ 
+    for ( int i = 0 ; i < n - 1 ; i++ ) {
+        for ( int j = i + 1 ; j < n ; j++ ) {
+            if ( a[i] < a[j] ) {
+                int temp = a[i] ;
+                a[i] = a[j] ;
+                a[j] = temp ;
+            }//end if
+        }//end for
+    }//end for
+    printf( "99-0 : " ) ;
+    for ( int i = 0 ; i < n ; i++ ) {
+        printf( "%d ", a[i] ) ;
+    }//end for
+    printf( "\n" ) ;
+
+
+    return 0 ;
+}//end function
